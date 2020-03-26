@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RazorCRUDApp.Data;
+using RazorCRUDApp.Repository;
 
 namespace RazorCRUDApp
 {
@@ -26,7 +27,7 @@ namespace RazorCRUDApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<RazorCRUDContext>(c => c.UseSqlServer(Configuration.GetConnectionString("RazorCRUDConnection")));
-
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddRazorPages();
         }
 

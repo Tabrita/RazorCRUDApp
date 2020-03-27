@@ -1,0 +1,25 @@
+﻿@page
+@model RazorCRUDApp.Pages.Product.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<div class="card-deck mb-3 text-center">
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Details</h4>
+        </div>
+        <div class="card-body">
+            <h1>@Model.product.Name</h1>
+            <h2 class="card-title pricing-card-title text-danger">$@Model.product.UnitPrice </h2>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>@Model.product.Summary</li>
+                <li>@Model.product.Category.Name</li>
+            </ul>
+            <a href="./Index" class="btn btn-lg btn-block btn-outline-primary">Back to List</a>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,34 @@
+﻿@page
+@model RazorCRUDApp.Pages.Product.CreateModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";    
+}
+
+<h1>Create New Product</h1>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.myProduct.Name" class="control-label"></label>
+        <input asp-for="@Model.myProduct.Name" class="form-control" />
+        <span asp-validation-for="myProduct.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="myProduct.UnitPrice" class="control-label"></label>
+        <input asp-for="myProduct.UnitPrice" class="form-control" />
+        <span asp-validation-for="myProduct.UnitPrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="myProduct.Summary" class="control-label"></label>
+        <textarea asp-for="myProduct.Summary" class="form-control"></textarea>        
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.myProduct.Category" class="control-label"></label>
+        <select asp-for="@Model.myProduct.CategoryId" class="form-control" asp-items="(SelectList)@ViewData["Categories"]">
+            <option value="">-- Select Category --</option>
+        </select>        
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Save</button>
+    </div>
+</form>
+
